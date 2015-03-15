@@ -1,0 +1,75 @@
+.main-container {
+    width:970px;
+}
+.head h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#gold_score h1, #gold_score h2 {
+    display: inline-block;
+}
+
+#gold-score h1, #gold-score h2 {
+    display: inline;
+}
+
+#gold-box {
+    margin-top: 40px;
+}
+
+.gold-farm, .gold-cave, .gold-house, .gold-casino {
+    display: inline-block;
+}
+
+.gold {
+    border: 2px solid black;
+    width: 220px;
+    height: 140px;
+    text-align: center;
+}
+
+.btn {
+    background-color: yellow;
+    height: 25px;
+    width: 65px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 80px;
+}
+
+.btn-start {
+    background-color: green;
+    color: white;
+    height: 45px;
+    width: 125px;
+    font-size: 18px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 80px;
+    margin-left: 450px;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+#gold-score h2 {
+    color: green;
+}
+
+#actitivites {
+    overflow: auto;
+    width: 600px;
+    height: 400px;
+    border: 2px solid blue;
+    margin-left: 150px;
+}
