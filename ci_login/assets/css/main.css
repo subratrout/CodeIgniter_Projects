@@ -40,8 +40,6 @@ input {
 }
 
 .errors {
-    border: 2px solid red;
-    margin-left: 460px;
     margin-top: 10px;
     color: red;
     width: 400px;
@@ -63,4 +61,11 @@ input {
 
 .logoff {
     margin-left: 700px;
+}
+
+.error {
+    color: red;
+}
+.green {
+    color: green;
 }

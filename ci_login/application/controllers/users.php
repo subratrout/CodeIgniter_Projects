@@ -11,28 +11,46 @@ class Users extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('index');
+
 	}
 
   public function register()
   {
-    $this->load->helper(array('form', 'url'));
+    // $this->load->helper(array('form', 'url'));
     $this->load->library('form_validation');
-
+    $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
+    $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+    $this->form_validation->set_rules('password', 'Password', 'required|matches[confirm_password]');
+    $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+    $this->form_validation->set_message('is_unique', 'This email is already exists.');
+    $this->form_validation->set_error_delimiters('<div class="errors">', '</div>');
 
     if($this->form_validation->run()==FALSE)
     {
-      $this->load->view('index');
+      $errors = validation_errors();
+      $this->session->set_flashdata('errors', $errors);
+      redirect('/users/index');
     }
     else
     {
-      $this->load->view('success');
+      $data = array(
+        'first_name'=> $this->input->post('first_name'),
+        'last_name' => $this->input->post('last_name'),
+        'email'=> $this->input->post('email'),
+        'password'=> md5($this->input->post('password'))
+        );
+
+      $this->load->model('User');
+      $this->User->create_user($data);
+      $success = "<p class='green'>User has been created!</p>";
+      $this->session->set_flashdata("success", $success);
+      redirect('/users/index');
     }
   }
 
   public function login()
   {
-    // $this->session->sess_destroy();
-    // die();
     $email = $this->input->post('email');
     $password = $this->input->post('password');
     $this->load->model("User");

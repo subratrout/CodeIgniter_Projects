@@ -22,6 +22,16 @@
                 Confirm Password: <input type="password" name="confirm_password">
                 <input type="submit" class = 'btn' value="register">
                 <input type="hidden" name='action' value="register">
+                <?php if($this->session->flashdata('errors'))
+                        {
+                            echo $this->session->flashdata('errors');
+                        }
+
+                        if($this->session->flashdata('success'))
+                        {
+                            echo $this->session->flashdata('success');
+                        }
+                ?>
             </form>
 
         <h2>Login</h2>
