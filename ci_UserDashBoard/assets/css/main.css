@@ -1,0 +1,9 @@
+.signin {
+  margin-top: 80px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+input#password_confirmation {
+  width: 121px;
+}

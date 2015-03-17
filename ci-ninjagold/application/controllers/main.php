@@ -18,6 +18,12 @@ class Main extends CI_Controller {
       $this->load->view('index', array("results" => $this->session->userdata("actitivites")));
   }
 
+  public function start()
+  {
+    $this->session->sess_destroy();
+    redirect('/');
+  }
+
   public function process_money()
   {
 

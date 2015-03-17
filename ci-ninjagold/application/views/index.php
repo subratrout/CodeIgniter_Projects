@@ -56,7 +56,7 @@
     </div>
 
     <div id="start">
-          <form action="/process_money" method="post">
+          <form action="/main/start" method="post">
                 <input type="submit" class = 'btn-start' value="Start Over">
                 <input type="hidden" name="action" value="start">
           </form>
@@ -67,8 +67,13 @@
         <div class="message">
 
             <?php
-            foreach ($results as $key => $value) {
+            if($results)
+            {
+                $reverse = array_reverse($results);
+                foreach ($reverse as $key => $value) {
                 echo $value;
+            }
+
             } ?>
                        </div>
     </div>
