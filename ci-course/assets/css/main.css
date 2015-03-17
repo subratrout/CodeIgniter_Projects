@@ -1,0 +1,43 @@
+.main-container {
+    width:970px;
+}
+.head h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    text-align: left;
+    width: 500px;
+    height: 300px;
+}
+
+#form {
+    margin-left: 400px;
+}
+.btn {
+    background-color: green;
+    height: 25px;
+    width: 65px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-left: 280px;
+    color: white;
+}
+
+input {
+    width: 360px;
+    height: 25px;
+    display: block;
+}
+textarea {
+    width: 360px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
