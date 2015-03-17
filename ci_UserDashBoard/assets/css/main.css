@@ -7,3 +7,38 @@
 input#password_confirmation {
   width: 121px;
 }
+
+.container h1 {
+  margin-top: 80px;
+}
+
+.container h1, .container a {
+  display: inline-block;
+}
+
+.container .btn {
+  margin-left: 400px;
+}
+
+table, td, th {
+    border: 1px solid green;
+    padding: 5px;
+    height: 10px;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+
+.profile {
+  margin-top: 80px;
+}
+
+.btn {
+  width: 120px;
+}
+
+.user-info {
+  display: block;
+}
