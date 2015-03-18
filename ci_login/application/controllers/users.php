@@ -52,10 +52,11 @@ class Users extends CI_Controller {
   public function login()
   {
     $email = $this->input->post('email');
-    $password = $this->input->post('password');
+    $password = md5($this->input->post('password'));
     $this->load->model("User");
     $user = $this->User->get_user_by_email($email);
-    if($user && $user['password'] = $password)
+
+    if(!empty($email) && !empty($password) && $email == $user['email'] && $password == $user['password'])
     {
       $data = array(
         'user_id'=>$user['id'],
@@ -71,8 +72,8 @@ class Users extends CI_Controller {
 
     else
     {
-      $this->session-set_flashdata("login_error", "Invalid email or password!");
-      redirect('/index');
+      $this->session->set_flashdata("login_error", "Invalid email or password!");
+      redirect('/');
     }
   }
 

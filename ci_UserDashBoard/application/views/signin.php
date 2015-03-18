@@ -23,8 +23,6 @@
           <a class="navbar-brand" href="#">Test App</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -34,15 +32,26 @@
 
       <div class="row signin">
         <h2> Sign in </h2>
-          <form action="" method="post">
+          <form action="/users/login" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" name="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
+               <?php if($this->session->flashdata('errors'))
+                        {
+                            echo $this->session->flashdata('errors');
+                        }
+
+                        if($this->session->flashdata('success'))
+                        {
+                            echo $this->session->flashdata('success');
+                        }
+                        echo $this->session->flashdata("login_error");
+                ?>
         </div>
         <div>
           <a href="/main/register">Don't have an account? Please Register</a>

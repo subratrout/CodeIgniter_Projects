@@ -50,7 +50,18 @@
                 </div>
 
                 <input type="submit" value="Register" class="btn btn-info btn-block">
+                <?php
+                  if($this->session->flashdata('errors'))
+                        {
+                            echo $this->session->flashdata('errors');
+                        }
 
+                        if($this->session->flashdata('success'))
+                        {
+                            echo $this->session->flashdata('success');
+                        }
+
+                ?>
               </form>
             </div>
           </div>

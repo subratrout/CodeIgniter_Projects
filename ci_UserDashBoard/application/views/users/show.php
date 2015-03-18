@@ -25,7 +25,8 @@
                 <a class="navbar-brand" href="#">Profile</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
-                <form action="/main/signin" method="post" class="navbar-form navbar-right">
+                <span class="navbar-form navbar-right name" ><?= $this->session->userdata('user_name'); ?></span>
+                <form action="/users/logout" method="post" class="navbar-form navbar-right">
                   <button type="submit" class="btn btn-success">Log Off</button>
                 </form>
               </div><!--/.navbar-collapse -->

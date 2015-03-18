@@ -42,3 +42,7 @@ th {
 .user-info {
   display: block;
 }
+
+.name {
+  color: white;
+}

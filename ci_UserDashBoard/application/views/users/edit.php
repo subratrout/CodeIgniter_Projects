@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="#">Profile</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
-                <form action="/main/signin" method="post" class="navbar-form navbar-right">
+                <form action="/users/logout" method="post" class="navbar-form navbar-right">
                   <button type="submit" class="btn btn-success">Log Off</button>
                 </form>
               </div><!--/.navbar-collapse -->

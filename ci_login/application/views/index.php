@@ -25,12 +25,14 @@
                 <?php if($this->session->flashdata('errors'))
                         {
                             echo $this->session->flashdata('errors');
+
                         }
 
                         if($this->session->flashdata('success'))
                         {
                             echo $this->session->flashdata('success');
                         }
+                        echo $this->session->flashdata("login_error");
                 ?>
             </form>
 
