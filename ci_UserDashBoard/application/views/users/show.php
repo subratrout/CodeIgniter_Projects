@@ -25,13 +25,13 @@
                 <a class="navbar-brand" href="#">Profile</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
-                <span class="navbar-form navbar-right name" ><?= $this->session->userdata('user_name'); ?></span>
                 <form action="/users/logout" method="post" class="navbar-form navbar-right">
                   <button type="submit" class="btn btn-success">Log Off</button>
                 </form>
               </div><!--/.navbar-collapse -->
             </div>
           </nav>
+         <div class="user-name" ><p>Hello <?= $this->session->userdata('user_name'); ?></p></div>
 
           <div class="profile">
             <h2>Micheal Choi</h2>

@@ -43,6 +43,7 @@ th {
   display: block;
 }
 
-.name {
-  color: white;
+.user-name {
+  margin-top: 80px;
+  margin-left: 700px;
 }

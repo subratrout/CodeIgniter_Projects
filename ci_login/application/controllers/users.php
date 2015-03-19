@@ -96,6 +96,11 @@ class Users extends CI_Controller {
     redirect('index');
   }
 
+  public function show($id)
+  {
+
+  }
+
 }
 
 //end of main controller
