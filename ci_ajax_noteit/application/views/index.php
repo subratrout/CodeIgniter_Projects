@@ -11,17 +11,29 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
      <script>
         $(document).ready(function(){
-            $.get('/notes/index_html', function(res) {
-              $('#notes').html(res);
-            });
+          $(document).on('submit', 'form', function(){
+            $.post(
+                $(this).attr('action'),
+                $(this).serialize(),
+                function(response){
+                  $('#result').html(response)
 
-            $('form').submit(function(){
-              $.post('/notes/create', $(this).serialize(), function(res){
-                $('#notes').html(res);
-              });
-              return false;
-            });
-        });
+                })
+            return false;
+          })
+
+          $(document).on('change', 'div.notes textarea', function(){
+            $(this).parent().submit();
+          })
+
+          $(document).on('click', 'div.notes .title', function(){
+            $(this).replaceWith('<input type="text" name="title">');
+          })
+
+            $(document).on('change', 'div.notes input', function(){
+            $(this).parent().submit();
+          })
+        })
     </script>
 </head>
 <body>
@@ -31,19 +43,18 @@
     <div class="jumbotron">
       <div class="container">
         <h2>Welcome to Note It Wall</h2>
-        <h1>Notes</h1>
+        <div id="result">
+          <?php require_once('partials/notes.php'); ?>
+        </div>
+        <div id="write-note">
+           <form action="/notes/create" method="post">
+            Title: <input class="write" type="text" name="title" value=""><br>
+            Description: <textarea class="form-control" name="description"></textarea>
+          <input class ="btn btn-warning" type="submit" value="Add Note">
+        </form>
 
-        <div id="notes">
         </div>
 
-        <form action="/notes/create" method="post">
-          <p>
-            <label>Note: </label>
-            Title: <input type="text" name="title" value="insert your title here">
-            Description: <textarea name="description"> Add your description here.</textarea>
-          </p>
-          <input type="submit" value="Add Note">
-        </form>
       </div>
     </div>
 </body>

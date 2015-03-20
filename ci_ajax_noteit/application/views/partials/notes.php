@@ -1,12 +1,18 @@
 <?php
   foreach($notes as $note)
   {  ?>
-    <div class="post">
-      <p><?= $note['id'] ?></p>
-        <p><?= $note['title'] ?></p>
-        <p><?= $note['description'] ?></p>
-        <h4><?= $note['created_at'] ?></h4>
-        <a href="/notes/edit/<?=$note['id'] ?>">Edit</a>|<a href="/notes/destroy/<?=$note['id'] ?>">Delete</a>
+    <div class="notes">
+        <form action="/notes/update" method="post">
+           <span> Title:</span> <h6 class="title"><?= $note['title'] ?></h6>
+           Description: <textarea class="form-control" name="description"><?= $note['description'] ?></textarea>
+          <input type="hidden" name ="id" value="<?= $note['id'] ?>">
+          <input class="btn btn-success" type="submit" value="Update">
+        </form>
+        <form action="/notes/delete" method="post">
+           <input type="hidden" name ="id" value="<?= $note['id'] ?>">
+           <input class="btn btn-danger" type="submit" value="Delete">
+        </form>
+
     </div>
 
 <?php

@@ -21,13 +21,13 @@ class Note extends CI_Model {
 
   public function update($note)
   {
-    $query = $this->db->query("UPDATE posts SET title=?, description=?, created_at=NOW(), updated_at= NOW() WHERE id=?", array($note['title'], $note['description']));
+    $query = $this->db->query("UPDATE notes SET description=?, created_at=NOW(), updated_at= NOW() WHERE id=?", array($note['description'], $note['id']));
     return $query;
   }
 
-  public function destroy($id)
+  public function delete($note)
   {
-    $query = $this->db->query("DELETE FROM notes WHERE id= ?", array($id));
+    $query = $this->db->query("DELETE FROM notes WHERE id= ?", array($note['id']));
     return $query;
   }
 }

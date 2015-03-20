@@ -7,19 +7,19 @@ class Notes extends CI_Controller {
     $this->load->model("Note");
   }
 
-  public function index_json()
+  public function index()
   {
     $this->load->model("Note");
-    $data["notes"] = $this->Note->all();
-    echo json_encode($data);
+    $array["notes"] = $this->Note->all();
+    $this->load->view('index.php', $array);
   }
 
-  public function index_html()
-  {
-    $this->load->model("Note");
-    $data['notes'] = $this->Note->all();
-    $this->load->view("partials/notes", $data);
-  }
+  // public function index_html()
+  // {
+  //   $this->load->model("Note");
+  //   $data['notes'] = $this->Note->all();
+  //   $this->load->view("partials/notes", $data);
+  // }
 
   public function create()
   {
@@ -40,20 +40,20 @@ class Notes extends CI_Controller {
 
   public function update()
   {
+
     $this->load->model("Note");
-    $this->Note->update($this->input->post());
+    $note = $this->input->post();
+    $this->Note->update($note);
+    $data['notes'] = $this->Note->all();
+    $this->load->view('partials/notes', $data);
   }
 
-  public function destroy($id)
+  public function delete()
   {
     $this->load->model("Note");
-    $this->Note->destroy($id);
-    redirect('/');
-  }
-
-  public function index()
-  {
-    $this->load->view('index');
+    $this->Note->delete($this->input->post());
+    $data['notes'] = $this->Note->all();
+    $this->load->view('partials/notes', $data);
   }
 
 }
