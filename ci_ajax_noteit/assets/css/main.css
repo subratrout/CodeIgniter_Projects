@@ -6,9 +6,9 @@ form {
 .notes {
   display: inline-block;
   width: 240px;
-  height: 240px;
+  height: 200px;
   border: 1px solid black;
-  background-color: yellow;
+  background-color: #ff7d00;
   padding: 10px;
   margin: 20px;
 }
