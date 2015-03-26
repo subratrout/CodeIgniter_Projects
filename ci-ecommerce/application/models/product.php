@@ -17,11 +17,13 @@ class Product extends CI_Model {
          $query = $this->db->query("SELECT * FROM products WHERE id = ?", array($id));
          return $query->row();
      }
-     function create($product)
+     function create($product, $upload)
      {
          $this->db->query("INSERT INTO products (name, description, price, categories_id, created_at, updated_at) VALUES (?,?,?,?, NOW(),NOW())", array(ucfirst($product['name']), ucfirst($product['description']), $product['price'], $product['category']));
          $product_id = mysql_insert_id();
-         $this->db->query("INSERT INTO images (products_id, created_at, updated_at) VALUES (".$product_id.", NOW(), NOW())");
+         $this->db->query("INSERT INTO images (products_id, location, created_at, updated_at) VALUES (".$product_id.", '". $upload['file_name']."', NOW(), NOW())");
+
+
          
      }
 
